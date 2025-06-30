@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Insert Name] - Business Intelligence Portfolio </title>
+    <title>Alex Chen - Data Analytics Portfolio</title>
     <meta name="description" content="Professional data analytics portfolio showcasing machine learning, data visualization, and statistical analysis projects">
     
     <!-- Tailwind CSS -->
@@ -114,7 +114,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
-                    <span class="text-xl font-bold" style="color: var(--data-cyan)">[Insert Name]</span>
+                    <span class="text-xl font-bold" style="color: var(--data-cyan)">Alex Chen</span>
                 </div>
                 
                 <!-- Desktop Navigation -->
@@ -176,11 +176,10 @@
                     />
                 </div>
                 
-                <h1 class="text-5xl font-bold mb-6 whitespace-nowrap">
-                      <span class="text-slate-50">[Insert Name]</span>
-                      <span class="data-gradient-text"> Business Intelligence Consultant</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-slate-50">Alex Chen</span>
+                    <span class="data-gradient-text"> Data Analytics Specialist</span>
                 </h1>
-
                 
                 <p class="text-xl md:text-2xl text-slate-400 mb-8 max-w-3xl mx-auto">
                     Transforming complex data into actionable insights through advanced analytics, machine learning, and compelling visualizations
@@ -457,11 +456,85 @@
         </div>
     </section>
 
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-slate-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-slate-700">
+                <div class="p-8">
+                    <!-- Modal Header -->
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex-1">
+                            <h2 id="modal-title" class="text-3xl font-bold mb-2">Project Title</h2>
+                            <div id="modal-categories" class="flex gap-2 mb-4">
+                                <!-- Categories will be populated here -->
+                            </div>
+                        </div>
+                        <button onclick="closeProjectDetails()" class="text-slate-400 hover:text-slate-300 transition-colors">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Project Image -->
+                    <div class="mb-6">
+                        <img id="modal-image" src="" alt="" class="w-full h-64 object-cover rounded-xl">
+                    </div>
+                    
+                    <!-- Project Description -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-cyan-400">Overview</h3>
+                        <p id="modal-description" class="text-slate-300 text-lg leading-relaxed">
+                            Project description will appear here.
+                        </p>
+                    </div>
+                    
+                    <!-- Technologies Used -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-cyan-400">Technologies Used</h3>
+                        <div id="modal-technologies" class="flex flex-wrap gap-2">
+                            <!-- Technologies will be populated here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Key Features -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-cyan-400">Key Features</h3>
+                        <ul id="modal-features" class="space-y-2 text-slate-300">
+                            <!-- Features will be populated here -->
+                        </ul>
+                    </div>
+                    
+                    <!-- Results & Impact -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-cyan-400">Results & Impact</h3>
+                        <div id="modal-results" class="text-slate-300">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex gap-4 pt-6 border-t border-slate-700">
+                        <a id="modal-demo-link" href="#" target="_blank" rel="noopener noreferrer" class="data-gradient text-white px-6 py-3 rounded-lg font-semibold btn-hover transition-all duration-300 hidden">
+                            <i data-lucide="external-link" class="w-4 h-4 inline mr-2"></i>
+                            View Live Demo
+                        </a>
+                        <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="border border-slate-600 text-slate-300 px-6 py-3 rounded-lg font-semibold hover:bg-slate-700 transition-all duration-300 hidden">
+                            <i data-lucide="github" class="w-4 h-4 inline mr-2"></i>
+                            View Code
+                        </a>
+                        <button onclick="closeProjectDetails()" class="bg-slate-700 text-slate-300 px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-300">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-slate-900 border-t border-slate-800 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <p class="text-slate-400 mb-4">&copy; 2024 [Insert Name]. All rights reserved.</p>
+                <p class="text-slate-400 mb-4">&copy; 2024 Alex Chen. All rights reserved.</p>
                 <p class="text-slate-500 text-sm">Built with modern web technologies and data visualization best practices</p>
             </div>
         </div>
@@ -472,7 +545,7 @@
         // Portfolio Configuration
         const portfolioConfig = {
             personal: {
-                name: "[Insert Name]",
+                name: "Alex Chen",
                 title: "Data Analytics Specialist",
                 tagline: "Transforming complex data into actionable insights through advanced analytics, machine learning, and compelling visualizations",
                 profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300",
@@ -502,67 +575,151 @@
                 id: 1,
                 title: "Customer Churn Prediction",
                 description: "Built a machine learning model to predict customer churn with 94% accuracy using gradient boosting algorithms and feature engineering techniques.",
+                detailedDescription: "This comprehensive machine learning project involved analyzing customer behavior patterns to predict churn likelihood. Using advanced gradient boosting algorithms and extensive feature engineering, I developed a highly accurate model that helps businesses proactively retain valuable customers. The solution processes multiple data sources including transaction history, customer support interactions, and engagement metrics to provide actionable insights for customer retention strategies.",
                 category: "machine-learning",
-                technologies: ["Python", "Scikit-learn", "Pandas", "XGBoost"],
+                technologies: ["Python", "Scikit-learn", "Pandas", "XGBoost", "Matplotlib", "Seaborn", "SQL"],
                 imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
                 demoUrl: "#",
                 githubUrl: "#",
-                featured: 1
+                featured: 1,
+                features: [
+                    "94% prediction accuracy with gradient boosting ensemble",
+                    "Real-time customer risk scoring dashboard", 
+                    "Automated feature engineering pipeline",
+                    "A/B testing framework for retention strategies",
+                    "Integration with CRM systems and marketing automation"
+                ],
+                results: [
+                    "Reduced customer churn by 28% in first quarter",
+                    "Increased customer lifetime value by $2.3M annually", 
+                    "Improved marketing campaign ROI by 45%",
+                    "Automated early warning system for at-risk customers"
+                ]
             },
             {
                 id: 2,
                 title: "Sales Performance Dashboard",
                 description: "Interactive dashboard visualizing multi-dimensional sales data with drill-down capabilities, KPI tracking, and automated insights generation.",
+                detailedDescription: "A comprehensive business intelligence solution that transforms raw sales data into actionable insights through interactive visualizations. The dashboard provides executives and managers with real-time visibility into sales performance across multiple dimensions including geography, product lines, sales teams, and time periods. Advanced analytics capabilities include trend analysis, forecasting, and automated anomaly detection to identify opportunities and risks.",
                 category: "visualization",
-                technologies: ["Tableau", "SQL", "Power BI"],
+                technologies: ["Tableau", "SQL", "Power BI", "Python", "DAX", "ETL"],
                 imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=400&fit=crop",
                 demoUrl: "#",
                 githubUrl: "#",
-                featured: 1
+                featured: 1,
+                features: [
+                    "Interactive drill-down capabilities across all dimensions",
+                    "Real-time KPI monitoring with automated alerts",
+                    "Advanced forecasting models with confidence intervals",
+                    "Mobile-responsive design for executive access",
+                    "Automated report generation and distribution"
+                ],
+                results: [
+                    "Reduced time-to-insight from days to minutes",
+                    "Increased sales team productivity by 32%",
+                    "Improved forecast accuracy by 18%",
+                    "Enabled data-driven decision making across organization"
+                ]
             },
             {
                 id: 3,
                 title: "Market Trend Analysis",
                 description: "Comprehensive analysis of financial market trends using time series analysis, correlation studies, and predictive modeling techniques.",
+                detailedDescription: "An advanced financial analytics project that applies sophisticated statistical techniques to identify market patterns and predict future trends. The analysis combines multiple data sources including stock prices, economic indicators, news sentiment, and trading volumes to create comprehensive market intelligence. The solution provides investment professionals with quantitative insights for portfolio optimization and risk management decisions.",
                 category: "analytics",
-                technologies: ["R", "ggplot2", "Time Series", "Statistics"],
+                technologies: ["R", "ggplot2", "Time Series", "Statistics", "Python", "Prophet", "ARIMA"],
                 imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop",
                 demoUrl: "#",
                 githubUrl: "#",
-                featured: 1
+                featured: 1,
+                features: [
+                    "Multi-variate time series analysis with seasonal decomposition",
+                    "Cross-correlation analysis between market sectors",
+                    "Volatility modeling using GARCH frameworks",
+                    "News sentiment integration with market data",
+                    "Risk-adjusted portfolio optimization algorithms"
+                ],
+                results: [
+                    "Improved portfolio performance by 15% annually",
+                    "Reduced portfolio volatility by 22%",
+                    "Identified market opportunities 3-5 days earlier",
+                    "Enhanced risk management with predictive alerts"
+                ]
             },
             {
                 id: 4,
                 title: "Social Media Sentiment Analysis",
                 description: "NLP-powered sentiment analysis tool processing 100K+ social media posts with real-time sentiment tracking and brand perception insights.",
+                detailedDescription: "A sophisticated natural language processing system that monitors and analyzes social media conversations to provide real-time brand sentiment insights. The solution processes large volumes of unstructured text data from multiple social platforms, applying advanced NLP techniques to extract meaningful sentiment patterns, trending topics, and brand perception metrics. The system provides marketing teams with actionable intelligence for brand management and campaign optimization.",
                 category: "machine-learning",
-                technologies: ["Python", "NLTK", "TextBlob", "TensorFlow"],
+                technologies: ["Python", "NLTK", "TextBlob", "TensorFlow", "spaCy", "Kafka", "Elasticsearch"],
                 imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop",
                 demoUrl: "#",
                 githubUrl: "#",
-                featured: 0
+                featured: 0,
+                features: [
+                    "Real-time processing of 100K+ posts daily",
+                    "Multi-language sentiment analysis with 92% accuracy",
+                    "Trending topic detection and impact analysis",
+                    "Brand mention tracking across social platforms",
+                    "Automated crisis detection and alerting system"
+                ],
+                results: [
+                    "Improved brand response time by 75%",
+                    "Increased positive sentiment by 34%",
+                    "Reduced crisis response time to under 30 minutes",
+                    "Enhanced campaign effectiveness with real-time feedback"
+                ]
             },
             {
                 id: 5,
                 title: "Healthcare Analytics Platform",
                 description: "Comprehensive healthcare data visualization platform tracking patient outcomes, resource utilization, and operational efficiency metrics.",
+                detailedDescription: "A comprehensive healthcare business intelligence platform that transforms complex medical data into actionable insights for healthcare administrators and clinicians. The system integrates data from electronic health records, billing systems, and operational databases to provide a unified view of healthcare delivery performance. Advanced analytics capabilities include patient outcome prediction, resource optimization, and quality metrics tracking to improve both patient care and operational efficiency.",
                 category: "visualization",
-                technologies: ["D3.js", "React", "PostgreSQL", "Node.js"],
+                technologies: ["D3.js", "React", "PostgreSQL", "Node.js", "Python", "Docker", "AWS"],
                 imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=400&fit=crop",
                 demoUrl: "#",
                 githubUrl: "#",
-                featured: 0
+                featured: 0,
+                features: [
+                    "Patient outcome tracking with predictive analytics",
+                    "Resource utilization optimization algorithms",
+                    "Real-time operational dashboard for administrators",
+                    "Quality metrics monitoring and benchmarking",
+                    "Compliance reporting and audit trail capabilities"
+                ],
+                results: [
+                    "Reduced patient readmission rates by 18%",
+                    "Improved resource utilization by 25%",
+                    "Decreased operational costs by $1.2M annually",
+                    "Enhanced patient satisfaction scores by 22%"
+                ]
             },
             {
                 id: 6,
                 title: "Supply Chain Optimization",
                 description: "Data-driven supply chain optimization reducing costs by 23% through advanced analytics, demand forecasting, and inventory management.",
+                detailedDescription: "A comprehensive supply chain analytics solution that optimizes inventory management, demand forecasting, and logistics operations through advanced mathematical modeling and machine learning techniques. The system analyzes historical data, market trends, and external factors to provide optimal inventory levels, procurement timing, and distribution strategies. The solution integrates with existing ERP systems to provide seamless operational execution of optimization recommendations.",
                 category: "analytics",
-                technologies: ["SQL", "Python", "Optimization", "ETL"],
+                technologies: ["SQL", "Python", "Optimization", "ETL", "Apache Spark", "Tableau", "R"],
                 imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=400&fit=crop",
                 demoUrl: "#",
                 githubUrl: "#",
-                featured: 0
+                featured: 0,
+                features: [
+                    "Advanced demand forecasting with multiple algorithms",
+                    "Inventory optimization using linear programming",
+                    "Supplier performance analytics and scorecards",
+                    "Logistics route optimization and cost analysis",
+                    "Risk assessment and scenario planning tools"
+                ],
+                results: [
+                    "Reduced supply chain costs by 23% ($4.2M savings)",
+                    "Improved inventory turnover by 35%",
+                    "Decreased stockout incidents by 67%",
+                    "Enhanced supplier relationships with performance insights"
+                ]
             }
         ];
 
@@ -709,7 +866,7 @@
                                 ` : ''}
                             </div>
                             
-                            <button class="text-cyan-400 hover:text-blue-400 font-medium text-sm">
+                            <button onclick="showProjectDetails(${project.id})" class="text-cyan-400 hover:text-blue-400 font-medium text-sm">
                                 View Details →
                             </button>
                         </div>
@@ -792,6 +949,88 @@
 
             observer.observe(skillsSection);
         }
+
+        // Project Detail Modal functionality
+        function showProjectDetails(projectId) {
+            const project = projectsData.find(p => p.id === projectId);
+            if (!project) return;
+
+            // Populate modal content
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-image').src = project.imageUrl;
+            document.getElementById('modal-image').alt = project.title;
+            document.getElementById('modal-description').textContent = project.detailedDescription;
+
+            // Populate categories
+            const categoryDisplay = project.category.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+            
+            document.getElementById('modal-categories').innerHTML = `
+                <span class="px-3 py-1 text-xs font-semibold rounded-full ${getCategoryColor(project.category)}">
+                    ${categoryDisplay}
+                </span>
+            `;
+
+            // Populate technologies
+            document.getElementById('modal-technologies').innerHTML = project.technologies.map(tech => 
+                `<span class="px-3 py-1 text-sm font-semibold rounded-full ${getTechnologyColor(tech)}">${tech}</span>`
+            ).join('');
+
+            // Populate features
+            document.getElementById('modal-features').innerHTML = project.features.map(feature => 
+                `<li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 mr-2 mt-1 flex-shrink-0"></i>${feature}</li>`
+            ).join('');
+
+            // Populate results
+            document.getElementById('modal-results').innerHTML = project.results.map(result => 
+                `<div class="flex items-start mb-2"><i data-lucide="trending-up" class="w-4 h-4 text-emerald-400 mr-2 mt-1 flex-shrink-0"></i><span>${result}</span></div>`
+            ).join('');
+
+            // Handle action buttons
+            const demoLink = document.getElementById('modal-demo-link');
+            const githubLink = document.getElementById('modal-github-link');
+
+            if (project.demoUrl && project.demoUrl !== '#') {
+                demoLink.href = project.demoUrl;
+                demoLink.classList.remove('hidden');
+            } else {
+                demoLink.classList.add('hidden');
+            }
+
+            if (project.githubUrl && project.githubUrl !== '#') {
+                githubLink.href = project.githubUrl;
+                githubLink.classList.remove('hidden');
+            } else {
+                githubLink.classList.add('hidden');
+            }
+
+            // Show modal
+            document.getElementById('project-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+
+            // Recreate icons
+            lucide.createIcons();
+        }
+
+        function closeProjectDetails() {
+            document.getElementById('project-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('project-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectDetails();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !document.getElementById('project-modal').classList.contains('hidden')) {
+                closeProjectDetails();
+            }
+        });
 
         // Contact form functionality
         function handleContactForm() {
