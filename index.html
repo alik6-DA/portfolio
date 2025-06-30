@@ -512,14 +512,34 @@
                     </div>
                     
                     <!-- Action Buttons -->
-                    <div class="flex gap-4 pt-6 border-t border-slate-700">
+                    <div class="flex flex-wrap gap-3 pt-6 border-t border-slate-700">
                         <a id="modal-demo-link" href="#" target="_blank" rel="noopener noreferrer" class="data-gradient text-white px-6 py-3 rounded-lg font-semibold btn-hover transition-all duration-300 hidden">
                             <i data-lucide="external-link" class="w-4 h-4 inline mr-2"></i>
-                            View Live Demo
+                            Live Demo
                         </a>
                         <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="border border-slate-600 text-slate-300 px-6 py-3 rounded-lg font-semibold hover:bg-slate-700 transition-all duration-300 hidden">
                             <i data-lucide="github" class="w-4 h-4 inline mr-2"></i>
-                            View Code
+                            Code
+                        </a>
+                        <a id="modal-tableau-link" href="#" target="_blank" rel="noopener noreferrer" class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold btn-hover transition-all duration-300 hidden">
+                            <i data-lucide="bar-chart-3" class="w-4 h-4 inline mr-2"></i>
+                            Tableau
+                        </a>
+                        <a id="modal-powerbi-link" href="#" target="_blank" rel="noopener noreferrer" class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-lg font-semibold btn-hover transition-all duration-300 hidden">
+                            <i data-lucide="pie-chart" class="w-4 h-4 inline mr-2"></i>
+                            Power BI
+                        </a>
+                        <a id="modal-notebook-link" href="#" target="_blank" rel="noopener noreferrer" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold btn-hover transition-all duration-300 hidden">
+                            <i data-lucide="file-text" class="w-4 h-4 inline mr-2"></i>
+                            Notebook
+                        </a>
+                        <a id="modal-dataset-link" href="#" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold btn-hover transition-all duration-300 hidden">
+                            <i data-lucide="database" class="w-4 h-4 inline mr-2"></i>
+                            Dataset
+                        </a>
+                        <a id="modal-report-link" href="#" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold btn-hover transition-all duration-300 hidden">
+                            <i data-lucide="file-spreadsheet" class="w-4 h-4 inline mr-2"></i>
+                            Report
                         </a>
                         <button onclick="closeProjectDetails()" class="bg-slate-700 text-slate-300 px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-300">
                             Close
@@ -580,7 +600,12 @@
                 technologies: ["Python", "Scikit-learn", "Pandas", "XGBoost", "Matplotlib", "Seaborn", "SQL"],
                 imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
                 demoUrl: "#",
-                githubUrl: "#",
+                githubUrl: "https://github.com/your-username/customer-churn-prediction",
+                tableauUrl: "#",
+                powerbiUrl: "#",
+                notebookUrl: "https://colab.research.google.com/drive/your-notebook-id",
+                datasetUrl: "https://www.kaggle.com/datasets/your-dataset",
+                reportUrl: "#",
                 featured: 1,
                 features: [
                     "94% prediction accuracy with gradient boosting ensemble",
@@ -606,6 +631,11 @@
                 imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=400&fit=crop",
                 demoUrl: "#",
                 githubUrl: "#",
+                tableauUrl: "https://public.tableau.com/app/profile/your.profile/viz/SalesDashboard",
+                powerbiUrl: "https://app.powerbi.com/view?r=your-report-id",
+                notebookUrl: "#",
+                datasetUrl: "#",
+                reportUrl: "#",
                 featured: 1,
                 features: [
                     "Interactive drill-down capabilities across all dimensions",
@@ -679,8 +709,13 @@
                 category: "visualization",
                 technologies: ["D3.js", "React", "PostgreSQL", "Node.js", "Python", "Docker", "AWS"],
                 imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=400&fit=crop",
-                demoUrl: "#",
+                demoUrl: "https://healthcare-analytics-demo.com",
                 githubUrl: "#",
+                tableauUrl: "#",
+                powerbiUrl: "https://app.powerbi.com/view?r=healthcare-dashboard-id",
+                notebookUrl: "#",
+                datasetUrl: "#",
+                reportUrl: "https://drive.google.com/file/d/healthcare-report-pdf",
                 featured: 0,
                 features: [
                     "Patient outcome tracking with predictive analytics",
@@ -988,22 +1023,24 @@
             ).join('');
 
             // Handle action buttons
-            const demoLink = document.getElementById('modal-demo-link');
-            const githubLink = document.getElementById('modal-github-link');
+            const linkButtons = [
+                { element: document.getElementById('modal-demo-link'), url: project.demoUrl },
+                { element: document.getElementById('modal-github-link'), url: project.githubUrl },
+                { element: document.getElementById('modal-tableau-link'), url: project.tableauUrl },
+                { element: document.getElementById('modal-powerbi-link'), url: project.powerbiUrl },
+                { element: document.getElementById('modal-notebook-link'), url: project.notebookUrl },
+                { element: document.getElementById('modal-dataset-link'), url: project.datasetUrl },
+                { element: document.getElementById('modal-report-link'), url: project.reportUrl }
+            ];
 
-            if (project.demoUrl && project.demoUrl !== '#') {
-                demoLink.href = project.demoUrl;
-                demoLink.classList.remove('hidden');
-            } else {
-                demoLink.classList.add('hidden');
-            }
-
-            if (project.githubUrl && project.githubUrl !== '#') {
-                githubLink.href = project.githubUrl;
-                githubLink.classList.remove('hidden');
-            } else {
-                githubLink.classList.add('hidden');
-            }
+            linkButtons.forEach(({ element, url }) => {
+                if (url && url !== '#') {
+                    element.href = url;
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
 
             // Show modal
             document.getElementById('project-modal').classList.remove('hidden');
@@ -1047,20 +1084,114 @@
                     message: formData.get('message')
                 };
 
-                // Simulate form submission
                 const submitBtn = form.querySelector('button[type="submit"]');
                 const originalText = submitBtn.textContent;
                 
                 submitBtn.textContent = 'Sending...';
                 submitBtn.disabled = true;
 
-                setTimeout(() => {
+                // Option 1: Formspree (Easy setup)
+                sendViaFormspree(data, submitBtn, originalText, form);
+                
+                // Option 2: EmailJS (More customizable)
+                // sendViaEmailJS(data, submitBtn, originalText, form);
+                
+                // Option 3: Netlify Forms (If hosted on Netlify)
+                // sendViaNetlify(data, submitBtn, originalText, form);
+            });
+        }
+
+        // Option 1: Formspree submission
+        function sendViaFormspree(data, submitBtn, originalText, form) {
+            // Replace 'YOUR_FORM_ID' with your actual Formspree form ID
+            const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+            
+            fetch(formspreeEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    subject: data.subject,
+                    message: data.message
+                })
+            })
+            .then(response => {
+                if (response.ok) {
                     alert('Message sent successfully! Thank you for reaching out.');
                     form.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            })
+            .catch(error => {
+                alert('Error sending message. Please try again or contact me directly at your-email@example.com');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
             });
+        }
+
+        // Option 2: EmailJS submission
+        function sendViaEmailJS(data, submitBtn, originalText, form) {
+            // Replace with your EmailJS configuration
+            const serviceID = 'YOUR_SERVICE_ID';
+            const templateID = 'YOUR_TEMPLATE_ID';
+            const publicKey = 'YOUR_PUBLIC_KEY';
+            
+            emailjs.send(serviceID, templateID, {
+                from_name: data.name,
+                from_email: data.email,
+                subject: data.subject,
+                message: data.message,
+                to_email: 'your-email@example.com'
+            }, publicKey)
+            .then(() => {
+                alert('Message sent successfully! Thank you for reaching out.');
+                form.reset();
+            })
+            .catch((error) => {
+                alert('Error sending message. Please try again or contact me directly at your-email@example.com');
+                console.error('EmailJS Error:', error);
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+
+        // Option 3: Netlify Forms submission
+        function sendViaNetlify(data, submitBtn, originalText, form) {
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encode({
+                    'form-name': 'contact',
+                    ...data
+                })
+            })
+            .then(() => {
+                alert('Message sent successfully! Thank you for reaching out.');
+                form.reset();
+            })
+            .catch((error) => {
+                alert('Error sending message. Please try again or contact me directly at your-email@example.com');
+                console.error('Netlify Error:', error);
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+
+        function encode(data) {
+            return Object.keys(data)
+                .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+                .join("&");
         }
 
         // Initialize everything when DOM is loaded
