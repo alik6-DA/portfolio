@@ -1,134 +1,836 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alex Chen | Data Analytics Specialist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0b1120;
-      color: #fff;
-    }
-    header {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    .tagline {
-      color: #00bcd4;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    .section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .skills-bar {
-      background-color: #1e293b;
-      border-radius: 6px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-    .skills-bar-fill {
-      height: 20px;
-      background: linear-gradient(90deg, #00bcd4, #2196f3);
-      width: 0;
-      animation: fillBar 1.5s forwards;
-    }
-    @keyframes fillBar {
-      to {
-        width: var(--width);
-      }
-    }
-    .project {
-      margin-bottom: 2rem;
-      background-color: #1e293b;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-    .project img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-    }
-    .project a {
-      display: inline-block;
-      margin-right: 1rem;
-      color: #00bcd4;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen - Data Analytics Portfolio</title>
+    <meta name="description" content="Professional data analytics portfolio showcasing machine learning, data visualization, and statistical analysis projects">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        :root {
+            --data-blue: #3B82F6;
+            --data-cyan: #06B6D4;
+            --data-emerald: #10B981;
+            --slate-900: #0F172A;
+            --slate-800: #1E293B;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-500: #64748B;
+            --slate-400: #94A3B8;
+            --slate-300: #CBD5E1;
+            --slate-200: #E2E8F0;
+            --slate-100: #F1F5F9;
+            --slate-50: #F8FAFC;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--slate-900);
+            color: var(--slate-50);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .data-gradient {
+            background: linear-gradient(135deg, var(--data-blue), var(--data-cyan));
+        }
+
+        .data-gradient-text {
+            background: linear-gradient(135deg, var(--data-blue), var(--data-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+
+        .skill-bar {
+            transition: width 1s ease-out;
+        }
+
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--slate-800);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--slate-600);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--slate-500);
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&h=300" alt="Profile" />
-    <h1>Alex Chen</h1>
-    <div class="tagline">Data Analytics Specialist</div>
-    <p>Transforming complex data into actionable insights through advanced analytics, machine learning, and compelling visualizations.</p>
-  </header>
+<body class="bg-slate-900 text-slate-50">
+    <!-- Navigation -->
+    <nav id="navigation" class="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-bold" style="color: var(--data-cyan)">Alex Chen</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <button onclick="scrollToSection('home')" class="nav-link px-3 py-2 text-sm font-medium transition-colors duration-200 text-cyan-400">
+                            Home
+                        </button>
+                        <button onclick="scrollToSection('projects')" class="nav-link px-3 py-2 text-sm font-medium transition-colors duration-200 text-slate-300 hover:text-cyan-400">
+                            Projects
+                        </button>
+                        <button onclick="scrollToSection('skills')" class="nav-link px-3 py-2 text-sm font-medium transition-colors duration-200 text-slate-300 hover:text-cyan-400">
+                            Skills
+                        </button>
+                        <button onclick="scrollToSection('contact')" class="nav-link px-3 py-2 text-sm font-medium transition-colors duration-200 text-slate-300 hover:text-cyan-400">
+                            Contact
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-cyan-400 transition-colors duration-200">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden bg-slate-800 border-t border-slate-700 hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <button onclick="scrollToSection('home'); toggleMobileMenu()" class="mobile-nav-link block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 text-cyan-400">
+                    Home
+                </button>
+                <button onclick="scrollToSection('projects'); toggleMobileMenu()" class="mobile-nav-link block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 text-slate-300 hover:text-cyan-400">
+                    Projects
+                </button>
+                <button onclick="scrollToSection('skills'); toggleMobileMenu()" class="mobile-nav-link block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 text-slate-300 hover:text-cyan-400">
+                    Skills
+                </button>
+                <button onclick="scrollToSection('contact'); toggleMobileMenu()" class="mobile-nav-link block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 text-slate-300 hover:text-cyan-400">
+                    Contact
+                </button>
+            </div>
+        </div>
+    </nav>
 
-  <div class="section">
-    <h2>Skills & Expertise</h2>
-    <div>Python<div class="skills-bar"><div class="skills-bar-fill" style="--width: 95%"></div></div></div>
-    <div>R Programming<div class="skills-bar"><div class="skills-bar-fill" style="--width: 85%"></div></div></div>
-    <div>SQL<div class="skills-bar"><div class="skills-bar-fill" style="--width: 90%"></div></div></div>
-    <div>Tableau<div class="skills-bar"><div class="skills-bar-fill" style="--width: 88%"></div></div></div>
-    <div>Power BI<div class="skills-bar"><div class="skills-bar-fill" style="--width: 82%"></div></div></div>
-  </div>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <div class="mb-8">
+                    <img
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
+                        alt="Professional headshot"
+                        class="w-32 h-32 rounded-full mx-auto object-cover border-4 shadow-2xl"
+                        style="border-color: var(--data-cyan)"
+                    />
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-slate-50">Alex Chen</span>
+                    <span class="data-gradient-text"> Data Analytics Specialist</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-slate-400 mb-8 max-w-3xl mx-auto">
+                    Transforming complex data into actionable insights through advanced analytics, machine learning, and compelling visualizations
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button
+                        onclick="scrollToSection('projects')"
+                        class="data-gradient text-white px-8 py-3 font-semibold rounded-lg btn-hover transition-all duration-300"
+                    >
+                        View My Work
+                    </button>
+                    <button
+                        onclick="scrollToSection('contact')"
+                        class="border border-slate-600 text-slate-300 px-8 py-3 font-semibold rounded-lg hover:bg-slate-800 hover:text-cyan-400 transition-all duration-300"
+                    >
+                        Get In Touch
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="section">
-    <h2>Featured Projects</h2>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                    A showcase of data analytics projects demonstrating expertise in statistical analysis, machine learning, and data visualization
+                </p>
+            </div>
 
-    <div class="project">
-      <h3>Customer Churn Prediction</h3>
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="Churn" />
-      <p>Predict customer churn with 94% accuracy using gradient boosting.</p>
-      <p><strong>Tools:</strong> Python, Scikit-learn, Pandas, XGBoost</p>
-      <a href="#">Demo</a><a href="#">GitHub</a>
-    </div>
+            <!-- Project filtering -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="filterProjects('all')" class="filter-btn px-6 py-2 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white" data-filter="all">
+                    All Projects
+                </button>
+                <button onclick="filterProjects('machine-learning')" class="filter-btn px-6 py-2 rounded-full font-medium transition-all duration-300 bg-slate-700 text-slate-300 hover:bg-slate-600" data-filter="machine-learning">
+                    Machine Learning
+                </button>
+                <button onclick="filterProjects('visualization')" class="filter-btn px-6 py-2 rounded-full font-medium transition-all duration-300 bg-slate-700 text-slate-300 hover:bg-slate-600" data-filter="visualization">
+                    Data Viz
+                </button>
+                <button onclick="filterProjects('analytics')" class="filter-btn px-6 py-2 rounded-full font-medium transition-all duration-300 bg-slate-700 text-slate-300 hover:bg-slate-600" data-filter="analytics">
+                    Analytics
+                </button>
+            </div>
 
-    <div class="project">
-      <h3>Sales Performance Dashboard</h3>
-      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=400&fit=crop" alt="Sales" />
-      <p>Interactive dashboard with drill-down KPIs and automation insights.</p>
-      <p><strong>Tools:</strong> Tableau, SQL, Power BI</p>
-      <a href="#">Demo</a><a href="#">GitHub</a>
-    </div>
+            <!-- Projects grid -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
 
-    <div class="project">
-      <h3>Market Trend Analysis</h3>
-      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop" alt="Market" />
-      <p>Time series forecasting and predictive analytics on financial data.</p>
-      <p><strong>Tools:</strong> R, ggplot2, Time Series</p>
-      <a href="#">Demo</a><a href="#">GitHub</a>
-    </div>
-  </div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical Expertise</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                    A comprehensive toolkit for data analytics, machine learning, and business intelligence
+                </p>
+            </div>
 
-  <footer>
-    &copy; 2025 Alex Chen. Built with HTML, CSS, and GitHub Pages.
-  </footer>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Technical Skills -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold mb-6" style="color: var(--data-cyan)">Programming & Tools</h3>
+                    
+                    <div id="skills-container" class="space-y-6">
+                        <!-- Skills will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Expertise Areas -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold mb-6" style="color: var(--data-cyan)">Core Competencies</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-800/50 hover:bg-slate-800 transition-all duration-300 group border border-slate-700 rounded-lg p-6">
+                            <div class="text-emerald-400 text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="trending-up" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-2">Statistical Analysis</h4>
+                            <p class="text-slate-400 text-sm">Hypothesis testing, regression analysis, and statistical modeling</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 hover:bg-slate-800 transition-all duration-300 group border border-slate-700 rounded-lg p-6">
+                            <div class="text-blue-400 text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="brain" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-2">Machine Learning</h4>
+                            <p class="text-slate-400 text-sm">Supervised/unsupervised learning, deep learning, NLP</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 hover:bg-slate-800 transition-all duration-300 group border border-slate-700 rounded-lg p-6">
+                            <div class="text-cyan-400 text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="pie-chart" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-2">Data Visualization</h4>
+                            <p class="text-slate-400 text-sm">Interactive dashboards, storytelling with data</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 hover:bg-slate-800 transition-all duration-300 group border border-slate-700 rounded-lg p-6">
+                            <div class="text-purple-400 text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="database" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-2">Big Data</h4>
+                            <p class="text-slate-400 text-sm">Spark, Hadoop, cloud platforms, ETL processes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications & Education -->
+            <div class="mt-16 bg-slate-800/30 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold text-center mb-8">Certifications & Education</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg">
+                        <div class="text-center p-6">
+                            <div class="text-cyan-400 text-3xl mb-4">🎓</div>
+                            <h4 class="font-semibold mb-2">MS Data Science</h4>
+                            <p class="text-slate-400 text-sm">Stanford University</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg">
+                        <div class="text-center p-6">
+                            <div class="text-emerald-400 text-3xl mb-4">📜</div>
+                            <h4 class="font-semibold mb-2">AWS Certified</h4>
+                            <p class="text-slate-400 text-sm">Machine Learning Specialty</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg">
+                        <div class="text-center p-6">
+                            <div class="text-blue-400 text-3xl mb-4">🏆</div>
+                            <h4 class="font-semibold mb-2">Google Certified</h4>
+                            <p class="text-slate-400 text-sm">Professional Data Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                    Ready to collaborate on your next data analytics project? Let's discuss how I can help transform your data into actionable insights.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-xl hover:bg-slate-700 transition-colors duration-300">
+                            <div class="text-cyan-400 text-xl">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-300 font-medium">Email</p>
+                                <p class="text-slate-400">alex.chen@email.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-xl hover:bg-slate-700 transition-colors duration-300">
+                            <div class="text-emerald-400 text-xl">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-300 font-medium">Phone</p>
+                                <p class="text-slate-400">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-xl hover:bg-slate-700 transition-colors duration-300">
+                            <div class="text-blue-400 text-xl">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-300 font-medium">Location</p>
+                                <p class="text-slate-400">San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="pt-6 border-t border-slate-700">
+                        <p class="text-slate-300 font-medium mb-4">Connect with me</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:bg-slate-700 transition-all duration-300">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-slate-400 hover:text-slate-300 hover:bg-slate-700 transition-all duration-300">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-slate-400 hover:text-blue-400 hover:bg-slate-700 transition-all duration-300">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-slate-800 border border-slate-700 rounded-lg">
+                    <div class="p-8">
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-slate-300 text-sm font-medium mb-2">Name</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        required
+                                        class="w-full px-3 py-2 bg-slate-700 border border-slate-600 text-slate-100 placeholder-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400"
+                                        placeholder="Your Name"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-slate-300 text-sm font-medium mb-2">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                        class="w-full px-3 py-2 bg-slate-700 border border-slate-600 text-slate-100 placeholder-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400"
+                                        placeholder="your.email@example.com"
+                                    />
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-slate-300 text-sm font-medium mb-2">Subject</label>
+                                <input
+                                    type="text"
+                                    id="subject"
+                                    name="subject"
+                                    required
+                                    class="w-full px-3 py-2 bg-slate-700 border border-slate-600 text-slate-100 placeholder-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400"
+                                    placeholder="Project Inquiry"
+                                />
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-slate-300 text-sm font-medium mb-2">Message</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="6"
+                                    required
+                                    class="w-full px-3 py-2 bg-slate-700 border border-slate-600 text-slate-100 placeholder-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 resize-none"
+                                    placeholder="Tell me about your project..."
+                                ></textarea>
+                            </div>
+                            
+                            <button
+                                type="submit"
+                                class="w-full data-gradient text-white py-3 px-6 font-semibold rounded-lg btn-hover transition-all duration-300"
+                            >
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-slate-400 mb-4">&copy; 2024 Alex Chen. All rights reserved.</p>
+                <p class="text-slate-500 text-sm">Built with modern web technologies and data visualization best practices</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Portfolio Configuration
+        const portfolioConfig = {
+            personal: {
+                name: "Alex Chen",
+                title: "Data Analytics Specialist",
+                tagline: "Transforming complex data into actionable insights through advanced analytics, machine learning, and compelling visualizations",
+                profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300",
+                location: "San Francisco, CA",
+                email: "alex.chen@email.com",
+                phone: "+1 (555) 123-4567",
+                social: {
+                    linkedin: "#",
+                    github: "#",
+                    twitter: "#"
+                }
+            },
+            skills: {
+                technical: [
+                    { name: "Python", level: 95 },
+                    { name: "R Programming", level: 85 },
+                    { name: "SQL", level: 90 },
+                    { name: "Tableau", level: 88 },
+                    { name: "Power BI", level: 82 }
+                ]
+            }
+        };
+
+        // Projects Data
+        const projectsData = [
+            {
+                id: 1,
+                title: "Customer Churn Prediction",
+                description: "Built a machine learning model to predict customer churn with 94% accuracy using gradient boosting algorithms and feature engineering techniques.",
+                category: "machine-learning",
+                technologies: ["Python", "Scikit-learn", "Pandas", "XGBoost"],
+                imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+                demoUrl: "#",
+                githubUrl: "#",
+                featured: 1
+            },
+            {
+                id: 2,
+                title: "Sales Performance Dashboard",
+                description: "Interactive dashboard visualizing multi-dimensional sales data with drill-down capabilities, KPI tracking, and automated insights generation.",
+                category: "visualization",
+                technologies: ["Tableau", "SQL", "Power BI"],
+                imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=400&fit=crop",
+                demoUrl: "#",
+                githubUrl: "#",
+                featured: 1
+            },
+            {
+                id: 3,
+                title: "Market Trend Analysis",
+                description: "Comprehensive analysis of financial market trends using time series analysis, correlation studies, and predictive modeling techniques.",
+                category: "analytics",
+                technologies: ["R", "ggplot2", "Time Series", "Statistics"],
+                imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop",
+                demoUrl: "#",
+                githubUrl: "#",
+                featured: 1
+            },
+            {
+                id: 4,
+                title: "Social Media Sentiment Analysis",
+                description: "NLP-powered sentiment analysis tool processing 100K+ social media posts with real-time sentiment tracking and brand perception insights.",
+                category: "machine-learning",
+                technologies: ["Python", "NLTK", "TextBlob", "TensorFlow"],
+                imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop",
+                demoUrl: "#",
+                githubUrl: "#",
+                featured: 0
+            },
+            {
+                id: 5,
+                title: "Healthcare Analytics Platform",
+                description: "Comprehensive healthcare data visualization platform tracking patient outcomes, resource utilization, and operational efficiency metrics.",
+                category: "visualization",
+                technologies: ["D3.js", "React", "PostgreSQL", "Node.js"],
+                imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=400&fit=crop",
+                demoUrl: "#",
+                githubUrl: "#",
+                featured: 0
+            },
+            {
+                id: 6,
+                title: "Supply Chain Optimization",
+                description: "Data-driven supply chain optimization reducing costs by 23% through advanced analytics, demand forecasting, and inventory management.",
+                category: "analytics",
+                technologies: ["SQL", "Python", "Optimization", "ETL"],
+                imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=400&fit=crop",
+                demoUrl: "#",
+                githubUrl: "#",
+                featured: 0
+            }
+        ];
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navigation functionality
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            updateActiveNavLink(sectionId);
+        }
+
+        function updateActiveNavLink(activeSection) {
+            // Update desktop navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-cyan-400');
+                link.classList.add('text-slate-300');
+            });
+            
+            // Update mobile navigation
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.classList.remove('text-cyan-400');
+                link.classList.add('text-slate-300');
+            });
+
+            // Set active link
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                if (link.textContent.toLowerCase() === activeSection) {
+                    link.classList.remove('text-slate-300');
+                    link.classList.add('text-cyan-400');
+                }
+            });
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            mobileMenu.classList.toggle('hidden');
+            
+            const icon = menuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        }
+
+        // Mobile menu event listener
+        document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+
+        // Scroll event listener for active navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            let currentSection = 'home';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            updateActiveNavLink(currentSection);
+        });
+
+        // Projects functionality
+        function getCategoryColor(category) {
+            switch (category) {
+                case 'machine-learning':
+                    return 'bg-emerald-500/20 text-emerald-400';
+                case 'visualization':
+                    return 'bg-cyan-500/20 text-cyan-400';
+                case 'analytics':
+                    return 'bg-purple-500/20 text-purple-400';
+                default:
+                    return 'bg-blue-500/20 text-blue-400';
+            }
+        }
+
+        function getTechnologyColor(tech) {
+            const colors = [
+                'bg-blue-500/20 text-blue-400',
+                'bg-orange-500/20 text-orange-400',
+                'bg-green-500/20 text-green-400',
+                'bg-red-500/20 text-red-400',
+                'bg-yellow-500/20 text-yellow-400'
+            ];
+            return colors[tech.length % colors.length];
+        }
+
+        function createProjectCard(project) {
+            const categoryDisplay = project.category.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+
+            return `
+                <div class="project-card bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-xl card-hover transition-all duration-300 group" data-category="${project.category}">
+                    <div class="relative overflow-hidden">
+                        <img
+                            src="${project.imageUrl}"
+                            alt="${project.title}"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3 flex-wrap">
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full ${getCategoryColor(project.category)}">
+                                ${categoryDisplay}
+                            </span>
+                            ${project.technologies.slice(0, 2).map(tech => 
+                                `<span class="px-3 py-1 text-xs font-semibold rounded-full ${getTechnologyColor(tech)}">${tech}</span>`
+                            ).join('')}
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors duration-300">
+                            ${project.title}
+                        </h3>
+                        
+                        <p class="text-slate-400 mb-4 line-clamp-3">
+                            ${project.description}
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex gap-3">
+                                ${project.demoUrl && project.demoUrl !== '#' ? `
+                                    <a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-blue-400 p-0">
+                                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    </a>
+                                ` : ''}
+                                ${project.githubUrl && project.githubUrl !== '#' ? `
+                                    <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-300 p-0">
+                                        <i data-lucide="github" class="w-4 h-4"></i>
+                                    </a>
+                                ` : ''}
+                            </div>
+                            
+                            <button class="text-cyan-400 hover:text-blue-400 font-medium text-sm">
+                                View Details →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderProjects(projects = projectsData) {
+            const projectsGrid = document.getElementById('projects-grid');
+            projectsGrid.innerHTML = projects.map(createProjectCard).join('');
+            lucide.createIcons();
+        }
+
+        function filterProjects(category) {
+            // Update filter button styles
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-slate-700', 'text-slate-300');
+            });
+            
+            const activeBtn = document.querySelector(`[data-filter="${category}"]`);
+            activeBtn.classList.remove('bg-slate-700', 'text-slate-300');
+            activeBtn.classList.add('bg-blue-600', 'text-white');
+
+            // Filter and render projects
+            const filteredProjects = category === 'all' 
+                ? projectsData 
+                : projectsData.filter(project => project.category === category);
+            
+            renderProjects(filteredProjects);
+        }
+
+        // Skills functionality
+        function createSkillBar(skill) {
+            return `
+                <div class="skill-item">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-slate-300 font-medium">${skill.name}</span>
+                        <span class="text-cyan-400 text-sm font-semibold">${skill.level}%</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-3">
+                        <div
+                            class="skill-bar data-gradient h-3 rounded-full transition-all duration-1000 ease-out"
+                            style="width: 0%"
+                            data-width="${skill.level}%"
+                        ></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSkills() {
+            const skillsContainer = document.getElementById('skills-container');
+            skillsContainer.innerHTML = portfolioConfig.skills.technical.map(createSkillBar).join('');
+        }
+
+        function animateSkills() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                }, index * 200);
+            });
+        }
+
+        // Intersection Observer for skills animation
+        function setupSkillsObserver() {
+            const skillsSection = document.getElementById('skills');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkills();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(skillsSection);
+        }
+
+        // Contact form functionality
+        function handleContactForm() {
+            const form = document.getElementById('contact-form');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    subject: formData.get('subject'),
+                    message: formData.get('message')
+                };
+
+                // Simulate form submission
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    alert('Message sent successfully! Thank you for reaching out.');
+                    form.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProjects();
+            renderSkills();
+            setupSkillsObserver();
+            handleContactForm();
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>
