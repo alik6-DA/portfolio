@@ -316,10 +316,10 @@
     <section id="home" class="min-h-[120vh] flex items-center justify-center pt-16 relative hero-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
             <div class="text-center px-8">
-               <div class="overflow-visible px-4">
-                    <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-bold mb-6 leading-relaxed tracking-wide inline-block pr-12">
+               <div class="overflow-visible">
+                    <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-bold mb-6 leading-relaxed tracking-wide">
                          <span class="text-slate-50 hero-name block sm:inline">Ali Khan</span>
-                         <span class="data-gradient-text hero-title block sm:inline">| Business Intelligence Consultant</span>
+                         <span class="data-gradient-text hero-title block sm:inline">Business Intelligence Consultant</span>
                     </h1>
                 </div>
 
@@ -709,15 +709,15 @@
             if (element) {
                 const nav = document.getElementById('navigation');
                 const navHeight = nav ? nav.offsetHeight : 64;
-                
+
                 // Calculate the exact position to show the section header
                 let scrollPosition = element.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                
+
                 // For projects section, ensure we see the "Featured Projects" title
                 if (sectionId === 'projects') {
                     scrollPosition = element.offsetTop - navHeight - 10;
                 }
-                
+
                 window.scrollTo({
                     top: Math.max(0, scrollPosition),
                     behavior: 'smooth'
@@ -1012,11 +1012,11 @@
                 let currentSection = 'home';
 
                 const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-                
+
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - navHeight - 50;
                     const sectionBottom = sectionTop + section.offsetHeight;
-                    
+
                     if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
                         currentSection = section.getAttribute('id');
                     }
