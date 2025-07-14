@@ -80,12 +80,18 @@
         }
 
         .data-gradient-text {
-                background: linear-gradient(to right, #22d3ee, #3b82f6); /* cyan-400 to blue-500 */
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text; /* For modern Firefox */
-                color: transparent;
-                }
+    background: linear-gradient(to right, #22d3ee, #3b82f6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    /* ADD THESE TO ENSURE VISIBILITY */
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.25;
+}
+
 
         /* Fallback for mobile browsers that don't support background-clip: text */
         @supports not (-webkit-background-clip: text) {
